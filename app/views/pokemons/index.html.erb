@@ -1,0 +1,9 @@
+<h1>Pokémons</h1>
+<ul>
+  <% @pokemons.each do |pokemon| %>
+    <li>
+      <%= link_to pokemon.name, pokemon_path(pokemon) %>
+      - Types: <%= pokemon.types.map(&:name).join(', ') %>
+    </li>
+  <% end %>
+</ul>
