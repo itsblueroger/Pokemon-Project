@@ -1,4 +1,89 @@
-<h1><%= @pokemon.name %></h1>
-<p>
-  Types: <%= @pokemon.types.map(&:name).join(', ') %>
-</p>
+<div class="container mt-5">
+  <div class="card mx-auto p-6" style="max-width: 1000px;">
+    <div class="card-body">
+      <div class="d-flex justify-content-between mb-3">
+        <%= link_to 'Back to Pokémon Index', pokemons_path, class: 'btn btn-primary' %>
+        <div>
+          <% if @previous_pokemon %>
+            <%= link_to 'Previous Pokémon', pokemon_path(@previous_pokemon), class: 'btn btn-secondary' %>
+          <% end %>
+          <% if @next_pokemon %>
+            <%= link_to 'Next Pokémon', pokemon_path(@next_pokemon), class: 'btn btn-secondary' %>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="text-center">
+        <h1 class="card-title">
+          <%= @pokemon.name.capitalize %>
+          <img src="<%= @pokemon.sprite %>" alt="<%= @pokemon.name %>" class="img-fluid mb-4" style="height: 200px;">
+        </h1>
+      </div>
+      
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th scope="row">Pokedex ID</th>
+            <td><%= @pokemon.game_id %></td>
+          </tr>
+          <tr>
+            <th scope="row">Height</th>
+            <td><%= @pokemon.height %> cm</td>
+          </tr>
+          <tr>
+            <th scope="row">Weight</th>
+            <td><%= @pokemon.weight / 10.0 %> kg</td>
+          </tr>
+          <tr>
+            <th scope="row">Base Experience</th>
+            <td><%= @pokemon.base_experience %></td>
+          </tr>
+          <tr>
+            <th scope="row">Types</th>
+            <td><%= @pokemon.types.map { |t| t.name.capitalize }.join(', ') %></td>
+          </tr>
+          <tr>
+            <th scope="row">Abilities</th>
+            <td><%= @pokemon.abilities.map { |a| a.name_for_view }.join(', ') %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 class="mt-4">Stats</h3>
+      <table class="table table-striped">
+        <thead class="table-success">
+          <tr>
+            <th scope="col">Stat</th>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pokemon.pokemon_stats.each do |pokemon_stat| %>
+            <tr>
+              <td><%= pokemon_stat.name_for_view %></td>
+              <td><%= pokemon_stat.value %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <h3 class="mt-4">Moves</h3>
+      <table class="table table-striped">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">Move</th>
+            <th scope="col">Level Learned</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pokemon_moves.each do |pokemon_move| %>
+            <tr>
+              <td><%= pokemon_move.name_for_view %></td>
+              <td><%= pokemon_move.level %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

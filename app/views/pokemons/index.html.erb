@@ -1,9 +1,27 @@
-<h1>Pokémons</h1>
-<ul>
-  <% @pokemons.each do |pokemon| %>
-    <li>
-      <%= link_to pokemon.name, pokemon_path(pokemon) %>
-      - Types: <%= pokemon.types.map(&:name).join(', ') %>
-    </li>
-  <% end %>
-</ul>
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <div class="d-flex justify-content-between mb-4">
+        <h1 class="card-title">Pokémons</h1>
+      </div>
+      <table class="table table-hover table-striped">
+        <thead class="table-primary">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Types</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @pokemons.each do |pokemon| %>
+            <tr style="cursor: pointer;" onclick="window.location='<%= pokemon_path(pokemon) %>'">
+              <td class="align-middle"><%= pokemon.game_id %></td>
+              <td class="align-middle"><%= pokemon.name.capitalize %></td>
+              <td class="align-middle"><%= pokemon.types.map { |t| t.name.capitalize }.join(', ') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

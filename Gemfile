@@ -21,13 +21,23 @@ gem "importmap-rails"
 gem "tzinfo-data", platforms: %i[mswin mswin64 mingw x64_mingw jruby]
 
 gem "rubocop"
+gem 'bootstrap', '~> 5.3.3'
+gem 'popper_js', '~> 2.0'
+
+gem 'turbo-rails'
+gem 'sassc-rails'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'rspec-rails', '~> 6.1.0'
   gem "debug", platforms: %i[mri mswin mswin64 mingw x64_mingw]
   gem 'pry-byebug'
   gem 'pry-rails'
+end
+
+group :test do
+  gem 'rspec-rails', '~> 6.1.0'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
