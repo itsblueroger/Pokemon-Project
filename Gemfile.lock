@@ -100,7 +100,6 @@ GEM
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
     drb (2.2.1)
-    error_highlight (0.6.0)
     erubi (1.12.0)
     execjs (2.9.1)
     factory_bot (6.4.6)
@@ -297,7 +296,6 @@ PLATFORMS
 DEPENDENCIES
   bootstrap (~> 5.3.3)
   debug
-  error_highlight (>= 0.6.0)
   factory_bot_rails
   importmap-rails
   pg (~> 1.1)
