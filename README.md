@@ -1,24 +1,30 @@
-# README
+# Pokémon API Consumer
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a Rails application that consumes data from the Pokémon API (https://pokeapi.co/docs/v2).
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+1. Cloning the Repository
+`git clone <repository_url>`
 
-* System dependencies
+2. Installing Dependencies
+`bundle install`
 
-* Configuration
+3. Running the Rake Task to Update Pokémon Data
+`bundle exec rake pokemon:update_list`
 
-* Database creation
+This rake task fetches and populates the database with Pokémon data from the API. 
 
-* Database initialization
+*To update the list with the most current data from the API, run the rask task again.*
 
-* How to run the test suite
+## Usage
 
-* Services (job queues, cache servers, search engines, etc.)
+To start the Rails server, run the following command:
+`rails server`
 
-* Deployment instructions
+You can now access the application at http://localhost:3000.
 
-* ...
+Navigate to http://localhost:3000/pokemons to view the list of Pokémon.
+
+Click on a Pokémon from the list to view its details at http://localhost:3000/pokemons/:id.
+
