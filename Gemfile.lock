@@ -149,8 +149,6 @@ GEM
     nio4r (2.7.3)
     nokogiri (1.16.5-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.16.5-x86_64-linux)
-      racc (~> 1.4)
     parallel (1.24.0)
     parser (3.3.1.0)
       ast (~> 2.4.1)
@@ -292,12 +290,11 @@ GEM
 
 PLATFORMS
   arm64-darwin-21
-  x86_64-linux
 
 DEPENDENCIES
   bootstrap (~> 5.3.3)
   debug
-  error_highlight (>= 0.4.0)
+  error_highlight (>= 0.6.0)
   factory_bot_rails
   importmap-rails
   pg (~> 1.1)
