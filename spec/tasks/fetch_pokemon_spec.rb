@@ -1,4 +1,3 @@
-# spec/tasks/pokemon_task_spec.rb
 require 'rails_helper'
 require 'rake'
 

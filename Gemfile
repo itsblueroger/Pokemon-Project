@@ -32,12 +32,14 @@ group :development, :test do
   gem "debug", platforms: %i[mri mswin mswin64 mingw x64_mingw]
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'factory_bot_rails'
 end
 
 group :test do
   gem 'rspec-rails', '~> 6.1.0'
   gem 'vcr'
   gem 'webmock'
+  gem 'rails-controller-testing'
 end
 
 group :development do
